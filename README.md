@@ -2,6 +2,7 @@
 https://daink.github.io/unity-casual-game/
 
 # Tree
+Script
 ├─Common<br>
 │  ├─Ad<br>
 │  └─UI<br>
