@@ -3,9 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Unity WebGL Player | BrainGame</title>
     <style>
-       body, html {
+          body, html {
             margin: 0;
             padding: 0;
             width: 100%;
@@ -15,32 +16,37 @@
             align-items: center;
             /* background: #000000; */
         }
-      #unity-canvas {
-          background: #000000;
-      }
+
+        #unity-canvas {
+            background: #000000;
+        }
     </style>
   </head>
   <body style="text-align: center">
     <canvas id="unity-canvas" width=540 height=960 style="width: 540px; height: 960px; background: #000000"></canvas>
 
     <script>
-      function resizeCanvas() {
-          const canvas = document.getElementById('unity-canvas');
-          const windowWidth = window.innerWidth;
-          const windowHeight = window.innerHeight;
+       function resizeCanvas() {
+            const canvas = document.getElementById('unity-canvas');
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
 
-          const aspectRatio = 540 / 960;
-          if (windowWidth / windowHeight < aspectRatio) {
-              canvas.style.width = windowWidth + 'px';
-              canvas.style.height = (windowWidth / aspectRatio) + 'px';
-          } else {
-              canvas.style.width = (windowHeight * aspectRatio) + 'px';
-              canvas.style.height = windowHeight + 'px';
-          }
-      }
+            const aspectRatio = 540 / 960;
 
-      window.addEventListener('resize', resizeCanvas);
-      window.addEventListener('load', resizeCanvas);
+            if (windowWidth / windowHeight < aspectRatio) {
+                canvas.style.width = windowWidth + 'px';
+                canvas.style.height = (windowWidth / aspectRatio) + 'px';
+            } else {
+                canvas.style.width = (windowHeight * aspectRatio) + 'px';
+                canvas.style.height = windowHeight + 'px';
+            }
+
+            canvas.width = canvas.clientWidth;
+            canvas.height = canvas.clientHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        window.addEventListener('load', resizeCanvas);
   </script>
     <script src="Build/webgl.loader.js"></script>
     <script>
